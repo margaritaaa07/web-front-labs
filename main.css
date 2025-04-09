@@ -30,7 +30,7 @@ footer {
 
 a {
     text-decoration: none;
-    transition: 3s 2s;
+    transition: 3s 1s;
 }
 a:link{
     text-decoration: underline;
@@ -55,7 +55,7 @@ a:hover{
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     color: goldenrod;
-    transition: 4s;
+    transition: 3s;
 }
 
 a.active{
