@@ -15,14 +15,78 @@ header {
 main {
     margin: 0px;
     font-family: Arial;
+    margin: 10px 20px 40px;
 }
 
 footer {
     background-color: beige;
     color: lightcoral;
     font-family: Arial;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 a {
     text-decoration: none;
+    transition: 3s 2s;
+}
+a:link{
+    text-decoration: underline;
+    color: blanchedalmond;
+    background-color: crimson;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: lighter;
+}
+
+a:visited{
+    text-decoration: underline;
+    background-color: azure;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: darkmagenta;
+}
+
+a:hover{
+    text-decoration: double;
+    box-shadow: 10px 10px 5px #003;
+    background-color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: goldenrod;
+    transition: 4s;
+}
+
+a.active{
+    color: brown;
+    opacity: 0.3;
+}
+
+div.menu{
+    border: 6px solid #009;
+    border-radius: 5px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+div.menu:hover{
+    background: #009099;
+    box-shadow: 10px 10px 15px #888999;
+    background-color: blueviolet;
+}
+
+h1 {
+    text-align: center;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+div.text15{
+    margin: 20px;
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 7px;
+    width: 500px;
+    height: 200px;
+    overflow: auto;
 }
