@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+ <html lang="ru">
+ <head>
+     <meta charset="UTF-8">
+     <title>Бережная Маргарита Валерьевна. Лабораторная 4</title>
+     <link rel="stylesheet" href="../main.css">
+     <link rel="icon" href="../favicon.ico">
+     <link rel="icon" href="../favicon-16x16.png">
+     <link rel="icon" href="../favicon-32x32.png">
+     <link rel="icon" href="favicon.ico" type="image/x-icon">
+     <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+     <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+     <style>
+         .progress-container {
+             width: 400px;
+             background-color: #fff;
+             border: 1px solid #ccc;
+             border-radius: 5px;
+             padding: 20px;
+             text-align: center;
+             box-shadow: 0 2px 5px rgba(160, 154, 154, 0.318);
+             justify-self: center;
+         }
+ 
+         .progress-label {
+             font-size: 18px;
+             margin-bottom: 10px;
+         }
+ 
+         .progress-bar-container {
+             width: 100%;
+             height: 20px;
+             background-color: #f9f9f9;
+             border-radius: 3px;
+             overflow: hidden; /* Обрезаем полоску */
+         }
+ 
+         .progress-bar {
+             height: 100%;
+             width: 0; /* Изначально прогресс равен 0 */
+             background-color: #e78a43;
+             transition: width 0.1s linear; /* Плавное изменение ширины */
+         }
+ 
+         .hold-button {
+             background-color: #c33ca1;
+             color: white;
+             border: none;
+             padding: 10px 20px;
+             border-radius: 5px;
+             cursor: pointer;
+             box-shadow: 0 2px 3px rgba(41, 6, 36, 0.3); /* Слабая тень */
+             transition: box-shadow 0.2s ease-in-out;
+             margin-top: 15px;
+         }
+ 
+         .hold-button:hover {
+             box-shadow: 5px 5px 5px rgba(34, 77, 102, 0.877); /* Тень выразительнее */
+             height: 40px;
+             width: 250px;
+             background-color: #00ccffa9;
+         }
+ 
+         .hold-button:active {
+             box-shadow: none; /* Убираем тень при нажатии */
+         }
+     </style>
+ 
+ 
+     <body>
+         <header>
+             НГТУ, ФБ, Лабораторная работа 4
+             <hr>
+         </header>
+     
+         <main>
+             <div class="progress-container">
+                 <div class="progress-label">Степень прогресса</div>
+                 <div class="progress-bar-container">
+                     <div class="progress-bar" id="progressBar"></div>
+                 </div>
+                 <button class="hold-button" id="holdButton">Нажмите и удерживайте</button>
+             </div>
+             <script>
+                 const holdButton = document.getElementById('holdButton');
+                 const progressBar = document.getElementById('progressBar');
+                 let progress = 0;
+                 let intervalId;
+                 holdButton.addEventListener('mousedown', () => {
+                     progress = 0;
+                     progressBar.style.width = '0%';
+                     intervalId = setInterval(() => {
+                         progress += 2;
+                         progressBar.style.width = progress + '%';
+                         if (progress >= 100) {
+                             clearInterval(intervalId);
+                         }
+                     }, 100); // обновляем каждые 100 мс (5 секунд до 100%)
+                 });
+         
+                 holdButton.addEventListener('mouseup', () => {
+                     clearInterval(intervalId);
+                 });
+         
+                 holdButton.addEventListener('mouseleave', () => {
+                     clearInterval(intervalId);
+                 });
+             </script>
+         </main>
+     
+         <footer>
+             <hr>
+             &copy; Бережная Маргарита, ФБИ-33, 2 курс, 2025
+         </footer>
+     </body>
+ </html>
