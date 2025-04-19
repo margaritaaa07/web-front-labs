@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="../main.CSS">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+    <style>
+        div.text5 div {
+            display: none;
+        }
+        div.text1 div {
+            display: none;
+        }
+        div.text2 div {
+            display: none;
+        }
+        div.text3 div {
+            display: none;
+        }
+        div.text4 div {
+            display: none;
+        }
+
+        h1:hover + div {
+            display: block;
+        }
+        .text5 {
+            width: 300px;
+            border: 3px groove;
+            display: inline-block;
+            vertical-align: top;
+            padding: 20px;
+            margin: 18px;
+            background-color: #afe9e7;
+            box-shadow: 5px 5px 10px rgb(23, 22, 62);
+            color: rgb(141, 234, 234);
+            border-radius: 10px;
+            transition: 2s;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .text5:hover {
+            cursor: pointer;
+            text-decoration: double; 
+            box-shadow: 5px 5px 10px rgb(0, 0, 0); 
+            font-family: Georgia, 'Times New Roman', Times, serif; 
+            font-weight: bold; 
+            color: rgb(133, 28, 124);
+            background-color: rgb(217, 138, 219);
+            transition: 3s;
+            width: 400px;
+            border: 10px solid rgb(236, 142, 27);
+            vertical-align: top;
+            padding: 25px;
+            margin: 22px;
+            border-radius: 10px;
+            text-indent: 15px;
+            text-align: justify;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 15px;
+        }
+        .text1 {
+            width: 300px;
+            border: 5px double;
+            display: inline-block;
+            vertical-align: top;
+            padding: 15px;
+            margin: 15px;
+            background-color: #591c43;
+            box-shadow: 3px 3px 3px rgb(0, 0, 0); 
+            border-radius: 7px;
+            transition: 2s;
+            color: rgb(109, 12, 144);
+        }
+        .text1:hover {
+            cursor: pointer;
+            text-decoration: solid; 
+            box-shadow: 5px 5px 10px rgb(202, 41, 41); 
+            font-family: Arial, Helvetica, sans-serif; 
+            font-weight: bold; 
+            color: black;
+            background-color: rgb(206, 213, 213);
+            transition: 3s;
+            width: 500px;
+            border: 10px solid;
+            vertical-align: top;
+            padding: 25px;
+            margin: 20px;
+            border-radius: 5px;
+            text-indent: 15px;
+            text-align: justify;
+            font-size: 20px;
+        }
+        .text2 {
+            width: 300px;
+            border: 5px solid rgb(18, 24, 68);
+            display: inline-block;
+            vertical-align: top;
+            padding: 15px;
+            margin: 15px;
+            background-color: #3f0b5a;
+            color: rgb(231, 158, 147);
+            box-shadow: 7px 7px 7px rgb(105, 48, 97); 
+            border-radius: 7px;
+            transition: 2s;
+        }
+        .text2:hover {
+            cursor: pointer;
+            text-decoration: underline; 
+            box-shadow: 5px 5px 10px rgb(53, 58, 53); 
+            font-family: Arial, Helvetica, sans-serif; 
+            font-weight: normal; 
+            color: rgb(217, 70, 205);
+            background-color: rgb(232, 93, 127);
+            transition: 3s;
+            width: 380px;
+            border: 10px inset;
+            vertical-align: top;
+            padding: 25px;
+            margin: 20px;
+            border-radius: 10px;
+            text-indent: 30px;
+            text-align: justify;
+            font-size: 23px;
+        }
+        .text3 {
+            width: 300px;
+            border: 5px outset rgb(33, 6, 6);
+            display: inline-block;
+            vertical-align: top;
+            padding: 15px;
+            margin: 15px;
+            background-color: #ffffff7d;
+            color: rgb(207, 185, 83);
+            box-shadow: 7px 7px 7px rgb(100, 43, 17); 
+            border-radius: 7px;
+            transition: 2s;
+        }
+        .text3:hover {
+            cursor: pointer;
+            text-decoration: overline; 
+            box-shadow: 10px 10px 10px rgb(176, 106, 66); 
+            font-family: cursive;
+            font-weight: lighter; 
+            color: rgb(55, 5, 58);
+            background-color: rgb(121, 193, 102);
+            transition: 3s;
+            width: 460px;
+            border: 10px dashed;
+            vertical-align: top;
+            padding: 25px;
+            margin: 20px;
+            border-radius: 20px;
+            text-indent: 20px;
+            text-align: justify;
+            font-size: 23px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .text4 {
+            width: 320px;
+            border: 8px ridge rgb(40, 198, 185);
+            display: inline-block;
+            vertical-align: top;
+            padding: 20px;
+            margin: 18px;
+            background-color: #0dd1eb;
+            color: rgb(139, 203, 214);
+            box-shadow: 7px 7px 7px rgb(79, 137, 192); 
+            border-radius: 13px;
+            transition: 2s;
+        }
+        .text4:hover {
+            cursor: pointer;
+            text-decoration: double; 
+            box-shadow: 10px 15px 18px rgb(159, 51, 156); 
+            font-family: cursive;
+            font-weight: lighter; 
+            color: rgb(74, 6, 66);
+            background-color: rgb(166, 7, 118);
+            transition: 3s;
+            width: 280px;
+            border: 10px ridge;
+            vertical-align: top;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            text-indent: 10px;
+            text-align: justify;
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+</html>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 3
+        <hr>
+    </header>
+   
+    <main>
+        <div class="text5">
+            <h1>Азиатская кухня</h1>
+            <div>
+                Существуют культуры, очерченные границами одного государства. И есть традиции, которые веками, словно пазл, складываются из 
+                привычек многих народов. Азиатская кухня – яркий представитель многогранной культуры питания, в состав которой входят 
+                традиции стран Востока и Юго-Востока Азии, а также окружающих материк островных государств: Индонезии, Японии, Вьетнама и 
+                Кореи, Таиланда, Филиппин, Малайзии и еще десятка других.
+            </div>
+        </div>
+        <div class="text1">
+            <h1>Американская кухня</h1>
+            <div>
+                <b>Английская кухня</b> У многих людей исторически сложилось ошибочное представление о культуре питания американцев. 
+                Будто бы в США питаются только гамбургерами, хот-догами и прочим фастфудом и никогда не видели нормальной пищи. Однако те, 
+                кто окунулся в эту культуру, кто увидел американскую кухню изнутри, с уверенностью заявляют, что она разнообразная, 
+                интересная и вполне способна удовлетворить запросы людей с различными друг от друга вкусами. 
+            </div>
+        </div>
+
+        <div class="text2">
+            <h1>Армянская кухня</h1>
+            <div>
+                Армянскую кухню можно по праву считать противоположностью изменчивой американской или любой другой кухне мира, 
+                которая открыта для новшеств. Армяне – один из немногих народов, бережно хранящих собственные древние обычаи и не 
+                позволяющих влиять на них культурам соседних стран. Более чем за две тысячи лет гастрономические традиции армян практически 
+                не менялись, и это относится не только к списку предпочтительных продуктов, но также к методам приготовления и традиционной 
+                кухонной утвари.
+            </div>
+        </div>
+
+        <div class="text3">
+            <h1>Белорусская кухня</h1>
+            <div>
+                <i>Национальная белорусская кухня в своем большинстве формировалась под влиянием традиций соседних стран Прибалтики, 
+                    а также России, Украины, Польши. Не последнюю роль сыграли евреи и южные мусульманские народы. Пожалуй, всем известно, 
+                    что ведущую роль в приготовлении блюд в Беларуси занимает картофель, равно как у азиатов – рис. Причем картофель чаще 
+                    используют не в качестве гарнира, а как основу для создания блюда – из него готовят деруны, клецки, капытки, картофельные
+                    запеканки и рулеты (лежни), колдуны и бабки.</i>
+                </div>
+            </div>
+    
+            <div class="text4">
+                <h1>Греческая кухня</h1>
+                <div>
+                    Греческие блюда – особенно колоритная часть средиземноморской кухни, в состав которой входят традиции многих народов. 
+                    Несмотря на схожесть еды греков с кулинарными привычками жителей южных районов Италии и Франции, у греческой кухни есть 
+                    определенные, ни на что не похожие особенности. 
+                </div>
+            </div>
+        </main>
+    
+        <footer>
+            <hr>
+            &copy; Бережная Маргарита, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
