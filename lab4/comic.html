@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+ <html lang="ru">
+ <head>
+     <meta charset="UTF-8">
+     <title>Бережная Маргарита Валерьевна. Лабораторная 4</title>
+     <link rel="stylesheet" href="../main.css">
+     <link rel="icon" href="../favicon.ico">
+     <link rel="icon" href="../favicon-16x16.png">
+     <link rel="icon" href="../favicon-32x32.png">
+     <link rel="icon" href="favicon.ico" type="image/x-icon">
+     <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+     <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+     <style>
+     main {
+         position: relative; /* Контекст позиционирования для облачков */
+     }
+     .cloud1, .cloud2, .cloud3, .cloud4 {
+         position: absolute;
+         opacity: 0; 
+         transition: opacity 2s;
+     }
+     .cloud1 {
+         height: 30px;
+         width: 50px;
+         background-color: white;
+         border: 3px outset black;
+         border-radius: 50%;
+         position: absolute;
+         left: 60%;
+         top: 190px;
+         z-index: 100;
+         box-shadow: 3px 3px 3px rgb(230, 125, 28);
+     }
+     .cloud2 {
+         height: 40px;
+         width: 60px;
+         background-color: white;
+         border: 3px outset black;
+         border-radius: 50%;
+         position: absolute;
+         left: 64%;
+         top: 210px;
+         z-index: 100;
+         box-shadow: 3px 3px 3px rgb(207, 18, 224);
+     }
+     .cloud3 {
+         height: 50px;
+         width: 70px;
+         background-color: white;
+         border: 3px outset black;
+         border-radius: 50%;
+         position: absolute;
+         left: 68%;
+         top: 230px;
+         z-index: 100;
+         box-shadow: 3px 3px 3px goldenrod;
+     }
+     .cloud4 {
+         height: 90px;
+         width: 200px;
+         background-color: white;
+         border: 3px outset black;
+         border-radius: 50%;
+         text-align: center;
+         font-size: 30px;
+         line-height: 95px;
+         position: absolute;
+         left: 73%;
+         top: 250px;
+         z-index: 100;
+         box-shadow: 3px 3px 3px goldenrod;
+     }
+     main:hover .cloud1, main:hover .cloud2, main:hover .cloud3, main:hover .cloud4{
+         opacity: 1;
+     }
+     </style>
+ 
+ <body>
+     <header>
+         НГТУ, ФБ, Лабораторная работа 4
+         <hr>
+     </header>
+ 
+     <main>
+         <div class="cloud1"></div>
+         <div class="cloud2"></div>
+         <div class="cloud3"></div>
+         <div class="cloud4"><b>Aaa-aaa-aa!</b></div>
+         <div style="text-align:center; margin: 10px;">
+             <img src="../scubidy.jpg" height="600">
+         </div>
+     </main>
+ 
+     <footer>
+         <hr>
+         &copy; Бережная Маргарита, ФБИ-33, 2 курс, 2025
+     </footer>
+ </body>
+ </html>
