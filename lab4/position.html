@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+ <html>
+     <link rel="stylesheet" href="../main.css">
+     <link rel="icon" href="../favicon.ico">
+     <link rel="icon" href="../favicon-16x16.png">
+     <link rel="icon" href="../favicon-32x32.png">
+     <link rel="icon" href="favicon.ico" type="image/x-icon">
+     <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+     <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+     <style>
+         div {
+             width: 300px;
+             height: 70px;
+             line-height: 70px;
+             text-align: center;
+             background-color: rgb(234, 216, 216);
+             border: 1px dotted pink;
+             margin: 15px;
+         }
+         .static {
+             position: relative;
+             z-index: 1;
+         }
+         .position-relative {
+             position: relative;
+             left: 150px;
+             top: -130px;
+             z-index: 0;
+         }
+         .position-relative:hover {
+             z-index: 2;
+         } 
+         .position-absolute {
+             position: absolute;
+             left: 300px;
+         } 
+         .position-absolute:hover {
+             scale: 1.2;
+             background-color: rgb(205, 214, 110);
+             transition: 3s;
+             box-shadow: 3px 3px 3px rgb(155, 143, 48);
+         } 
+     </style>
+ </html>
+ <body>
+     <header>
+         НГТУ, ФБ, Лабораторная работа 4
+         <hr>
+     </header>
+    
+     <main>
+         <div class="static">static</div>
+         <div class="static">static</div>
+         <div class="position-relative">relative</div>
+         <div>static</div>
+         <div>static</div>
+         <div class="position-absolute">absolute</div>
+         <div>static</div>
+         <div>static</div>
+         <div>static</div>
+         <div>static</div>
+     </main>
+     
+     <footer>
+         <hr>
+         &copy; Бережная Маргарита, ФБИ-33, 2 курс, 2025
+     </footer>
+ </body>
