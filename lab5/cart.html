@@ -15,9 +15,9 @@
          document.addEventListener('DOMContentLoaded', function() {
              const appleInput = document.getElementById('Яблоки');
              const pearInput = document.getElementById('Груши');
-             const orangeInput = document.getElementById('Клубника');
+             const orangeInput = document.getElementById('Апельсины');
              const melonInput = document.getElementById('Дыни');
-             const watermelonnput = document.getElementById('Вишня');
+             const watermelonnput = document.getElementById('Арбузы');
              const calculateButton = document.getElementById('calculate');
              const clearButton = document.getElementById('clear');
              const totalPriceDiv = document.getElementById('total-price');
@@ -25,17 +25,17 @@
              calculateButton.addEventListener('click', function() {
                  const Яблоки = parseInt(appleInput.value) || 0;  
                  const Груши = parseInt(pearInput.value) || 0;
-                 const Апельсины = parseInt(strawberryInput.value) || 0;
+                 const Апельсины = parseInt(orangeInput.value) || 0;
                  const Дыни = parseInt(melonInput.value) || 0;
-                 const Арбузы = parseInt(cherrynput.value) || 0;
+                 const Арбузы = parseInt(watermelonnput.value) || 0;
          
                  const applePrice = Яблоки * 100;
                  const pearPrice = Груши * 80;
-                 const orangePrice = Клубника * 50;
+                 const orangePrice = Апельсины * 150;
                  const melonPrice = Дыни * 300;
-                 const watermelonPrice = Вишня * 100;
+                 const watermelonPrice = Арбузы * 450;
          
-                 const totalPrice = applePrice + pearPrice + strawberryPrice + melonPrice + cherryPrice;
+                 const totalPrice = applePrice + pearPrice + orangePrice + melonPrice + watermelonPrice;
          
                  totalPriceDiv.textContent = 'Общая цена: ' + totalPrice + ' р.';
              });
@@ -43,9 +43,9 @@
              clearButton.addEventListener('click', function() {
                  appleInput.value = 0;
                  pearInput.value = 0;
-                 strawberryInput.value = 0;
+                 orangeInput.value = 0;
                  melonInput.value = 0;
-                 cherrynput.value = 0;
+                 watermelonnput.value = 0;
                  totalPriceDiv.textContent = 'Общая цена: 0 р.';
              });
          });
@@ -55,7 +55,7 @@
              background-color: #fff;
              padding: 20px;
              border-radius: 5px;
-             box-shadow: 0 2px 5px rgba(62, 9, 28, 0.1);
+             box-shadow: 0 2px 5px rgba(74, 68, 19, 0.1);
          }
  
          .cart-item {
@@ -76,7 +76,7 @@
          }
  
          button {
-             background-color: #db95d4;
+             background-color: #a73253;
              color: white;
              padding: 10px 15px;
              border: none;
@@ -86,7 +86,7 @@
          }
  
          button:hover {
-             background-color: #471d56;
+             background-color: #d27dbf;
          }
  
          #total-price {
@@ -113,8 +113,8 @@
                  </div>
      
                  <div class="cart-item">
-                     <label for="Клубника">Клубника (50р/шт):</label>
-                     <input type="number" id="Клубника" name="Клубника" min="0" placeholder="Сколько клубники надо?">
+                     <label for="Апельсины">Апельсины (150р/шт):</label>
+                     <input type="number" id="Апельсины" name="Апельсины" min="0" placeholder="Сколько апельсинов надо?">
                  </div>
      
                  <div class="cart-item">
@@ -123,8 +123,8 @@
                  </div>
      
                  <div class="cart-item">
-                     <label for="Арбузы">Вишня (450р/шт):</label>
-                     <input type="number" id="Вишня" name="Вишня" min="0" placeholder="Сколько вишни надо?">
+                     <label for="Арбузы">Арбузы (450р/шт):</label>
+                     <input type="number" id="Арбузы" name="Арбузы" min="0" placeholder="Сколько арбузов надо?">
                  </div>
      
                  <button id="calculate">Рассчитать</button>
