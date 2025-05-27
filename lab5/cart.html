@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+ <html>
+     <head>
+         <meta charset="UTF-8">
+         <title>Бережная Маргарита Валерьевна. Лабораторная 5</title>
+         <link rel="stylesheet" href="../main.css">
+         <link rel="icon" href="../favicon.ico">
+         <link rel="icon" href="../favicon-16x16.png">
+         <link rel="icon" href="../favicon-32x32.png">
+         <link rel="icon" href="favicon.ico" type="image/x-icon">
+         <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+         <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+     </head>
+     <script>
+         document.addEventListener('DOMContentLoaded', function() {
+             const appleInput = document.getElementById('Яблоки');
+             const pearInput = document.getElementById('Груши');
+             const orangeInput = document.getElementById('Клубника');
+             const melonInput = document.getElementById('Дыни');
+             const watermelonnput = document.getElementById('Вишня');
+             const calculateButton = document.getElementById('calculate');
+             const clearButton = document.getElementById('clear');
+             const totalPriceDiv = document.getElementById('total-price');
+         
+             calculateButton.addEventListener('click', function() {
+                 const Яблоки = parseInt(appleInput.value) || 0;  
+                 const Груши = parseInt(pearInput.value) || 0;
+                 const Апельсины = parseInt(strawberryInput.value) || 0;
+                 const Дыни = parseInt(melonInput.value) || 0;
+                 const Арбузы = parseInt(cherrynput.value) || 0;
+         
+                 const applePrice = Яблоки * 100;
+                 const pearPrice = Груши * 80;
+                 const orangePrice = Клубника * 50;
+                 const melonPrice = Дыни * 300;
+                 const watermelonPrice = Вишня * 450;
+         
+                 const totalPrice = applePrice + pearPrice + strawberryPrice + melonPrice + cherryPrice;
+         
+                 totalPriceDiv.textContent = 'Общая цена: ' + totalPrice + ' р.';
+             });
+         
+             clearButton.addEventListener('click', function() {
+                 appleInput.value = 0;
+                 pearInput.value = 0;
+                 strawberryInput.value = 0;
+                 melonInput.value = 0;
+                 cherrynput.value = 0;
+                 totalPriceDiv.textContent = 'Общая цена: 0 р.';
+             });
+         });
+     </script>
+     <style>
+         .cart {
+             background-color: #fff;
+             padding: 20px;
+             border-radius: 5px;
+             box-shadow: 0 2px 5px rgba(62, 9, 28, 0.1);
+         }
+ 
+         .cart-item {
+             margin-bottom: 10px;
+         }
+ 
+         .cart-item label {
+             display: block;
+             margin-bottom: 5px;
+             font-weight: bold;
+         }
+ 
+         .cart-item input {
+             width: 300px;
+             padding: 5px;
+             border: 1px solid #ccc;
+             border-radius: 3px;
+         }
+ 
+         button {
+             background-color: #db95d4;
+             color: white;
+             padding: 10px 15px;
+             border: none;
+             border-radius: 4px;
+             cursor: pointer;
+             margin-right: 10px;
+         }
+ 
+         button:hover {
+             background-color: #471d56;
+         }
+ 
+         #total-price {
+             margin-top: 20px;
+             font-weight: bold;
+         }
+     </style>
+     <body>
+         <header>
+             НГТУ, ФБ, Лабораторная работа 5
+             <hr>
+         </header>
+  
+         <main>
+             <div class="cart">
+                 <div class="cart-item">
+                     <label for="Яблоки">Яблоки (100р/шт):</label>
+                     <input type="number" id="Яблоки" name="Яблоки" min="0" placeholder="Сколько яблок надо?">
+                 </div>
+     
+                 <div class="cart-item">
+                     <label for="Груши">Груши (80р/шт):</label>
+                     <input type="number" id="Груши" name="Груши" min="0" placeholder="Введите количество груш">
+                 </div>
+     
+                 <div class="cart-item">
+                     <label for="Клубника">Клубника (50р/шт):</label>
+                     <input type="number" id="Клубника" name="Клубника" min="0" placeholder="Сколько клубники надо?">
+                 </div>
+     
+                 <div class="cart-item">
+                     <label for="Дыни">Дыни (300р/шт):</label>
+                     <input type="number" id="Дыни" name="Дыни" min="0" placeholder="Сколько дынь надо?">
+                 </div>
+     
+                 <div class="cart-item">
+                     <label for="Арбузы">Вишня (450р/шт):</label>
+                     <input type="number" id="Вишня" name="Вишня" min="0" placeholder="Сколько вишни надо?">
+                 </div>
+     
+                 <button id="calculate">Рассчитать</button>
+                 <button id="clear">Очистить</button>
+     
+                 <div id="total-price">Общая цена: 0 р.</div>
+             </div>
+         </main>
+  
+         <footer>
+             <hr>
+             &copy; Бережная Маргарита, ФБИ-33, 2 курс, 2025
+         </footer>
+     </body>
+ </html>
