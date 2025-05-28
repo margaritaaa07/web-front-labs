@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Бережная Маргарита Валерьевна. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+    <script src="books.js"></script>
+    <style>
+        .book-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #66646b69;
+            border-radius: 5px;
+        }
+
+        .bestseller {
+            background-color: #c1b4e94a; 
+            border: 2px solid #716e2c; 
+        }
+
+        .unavailable {
+            color: #d6dab1; 
+            background-color: #a8dbc1; 
+        }
+        
+        .unavailable-text {
+            color: #d60a51; 
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body onload="showBooks()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+        <hr>
+    </header>
+
+    <main>
+        <h1>Список книг</h1>
+        <div id="bookList"></div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Бережная Маргарита, ФБИ-33, 2 курс, 2025
+    </footer>
+</body>
+</html>
