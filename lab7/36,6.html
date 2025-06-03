@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Бережная Маргарита Валерьевна. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+    <style>
+        button {
+            background-color: #67afdf;
+            color: rgb(227, 235, 241);
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #67afdf;
+        }
+        
+        #stock-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        #stock-table th, #stock-table td {
+            border: 1px solid #34495e;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        #stock-table th {
+            background-color: #67afdf;
+            color: rgb(227, 235, 241);
+        }
+        
+        #stock-table tr:nth-child(even) {
+            background-color: #c2e9f3;
+        }
+        
+        #stock-table tr:hover {
+            background-color: #515d65;
+        }
+        
+        .positive {
+            color: #0b6932;
+            font-weight: bold;
+        }
+        
+        .negative {
+            color: #e81c05;
+            font-weight: bold;
+        }
+        
+        .zero {
+            color: black;
+        }
+        
+        .stats {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgb(227, 235, 241);
+            border-radius: 5px;
+            border-left: 4px solid #67afdf;
+        }
+        
+        .stats p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        
+        .stats strong {
+            color: #0a2d4f;
+        }
+        
+        .max-price {
+            color: #0b6932;
+            font-weight: bold;
+        }
+        
+        .min-price {
+            color: #e81c05;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        const stockDates = ["21.05.2025", "22.05.2025", "23.05.2025", "26.05.2025", "27.05.2025", "28.05.2025",
+            "29.05.2025", "30.05.2025", "02.06.2025", "03.06.2025"
+        ];
+        const stockPrices = [9.98, 9.95, 10.00, 9.51, 9.71, 9.78, 9.75, 9.73, 9.81, 9.86];
+        
+        function showStockPrices() {
+            let table = document.getElementById('stock-table');
+            let statsDiv = document.getElementById('stock-stats');
+            
+            table.innerHTML = `
+                <tr>
+                    <th>Дата</th>
+                    <th>Цена акций (₽)</th>
+                    <th>Разница (₽)</th>
+                </tr>
+            `;
+            
+            let sum = 0;
+            let maxPrice = Math.max(...stockPrices);
+            let minPrice = Math.min(...stockPrices);
+            
+            for(let i = 0; i < stockDates.length; i++) {
+                let tr = document.createElement('tr');
+                
+                let tdDate = document.createElement('td');
+                tdDate.innerText = stockDates[i];
+                tr.appendChild(tdDate);
+                
+                let tdPrice = document.createElement('td');
+                tdPrice.innerText = stockPrices[i].toFixed(2);
+                
+                if(stockPrices[i] === maxPrice) {
+                    tdPrice.className = "max-price";
+                } else if(stockPrices[i] === minPrice) {
+                    tdPrice.className = "min-price";
+                }
+                
+                tr.appendChild(tdPrice);
+                
+                let tdDiff = document.createElement('td');
+                if(i === 0) {
+                    tdDiff.innerText = "-";
+                } else {
+                    let difference = stockPrices[i] - stockPrices[i-1];
+                    tdDiff.innerText = difference.toFixed(2);
+                    
+                    if(difference > 0) {
+                        tdDiff.className = "positive";
+                    } else if(difference < 0) {
+                        tdDiff.className = "negative";
+                    } else {
+                        tdDiff.className = "zero";
+                    }
+                }
+                tr.appendChild(tdDiff);
+                
+                table.appendChild(tr);
+                sum += stockPrices[i];
+            }
+            
+            let average = sum / stockPrices.length;
+            
+            statsDiv.innerHTML = `
+                <div class="stats">
+                    <p><strong>Средняя стоимость акции:</strong> ${average.toFixed(2)} ₽</p>
+                    <p><strong>Максимальная стоимость:</strong> <span class="max-price">${maxPrice.toFixed(2)} ₽</span></p>
+                    <p><strong>Минимальная стоимость:</strong> <span class="min-price">${minPrice.toFixed(2)} ₽</span></p>
+                </div>
+            `;
+            
+            let button = document.getElementById('show-stock-button');
+            button.style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+        <hr>
+    </header>
+
+    <main>
+        <button id="show-stock-button" onclick="showStockPrices()">Курс акций Аптечной сети 36,6</button>
+        <table id="stock-table"></table>
+        <div id="stock-stats"></div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Бережная Маргарита, ФБИ-33, 2 курс, 2025
+    </footer>
+</body>
+</html>
