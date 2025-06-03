@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Бережная Маргарита Валерьевна. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+    <style>
+        button {
+            background-color: #060e37;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #060e37;
+        }
+        
+        .exchange-info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            border-left: 4px solid #060e37;
+        }
+        
+        .exchange-info h3 {
+            margin-top: 0;
+            color: #312d22;
+            border-bottom: 1px solid white;
+            padding-bottom: 10px;
+        }
+        
+        .rate-value {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+            color: #111c26;
+        }
+        
+        .rate-difference {
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        
+        .positive {
+            color: rgb(32, 4, 124);
+            background-color: rgba(189, 225, 207, 0.2);
+        }
+        
+        .negative {
+            color: red;
+            background-color: rgba(231, 77, 60, 0.58);
+        }
+        
+        .neutral {
+            color: #57533a46;
+            background-color: rgba(68, 95, 97, 0.186);
+        }
+        
+        .info-row {
+            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #57533a46;
+        }
+        
+        .info-value {
+            color: #57533a46;
+        }
+        
+        .source {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #111c26;
+            text-align: center;
+        }
+        
+        .source a {
+            color: #000000;
+            text-decoration: none;
+            background-color: white;
+        }
+        
+        .source a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function getEuroExchangeRate() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+            fetch(url)
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(json){
+                    const euroRate = json.Valute.EUR.Value.toFixed(2);
+                    const date = new Date(json.Date);
+                    const previousDate = new Date(json.PreviousDate);
+                    const previousEuroRate = json.Valute.EUR.Previous.toFixed(2);
+                    const difference = (json.Valute.EUR.Value - json.Valute.EUR.Previous).toFixed(2);
+                    
+                    let differenceMessage, differenceClass;
+                    if (difference > 0) {
+                        differenceMessage = `▲ Курс вырос на ${difference} руб.`;
+                        differenceClass = 'positive';
+                    } else if (difference < 0) {
+                        differenceMessage = `▼ Курс упал на ${Math.abs(difference)} руб.`;
+                        differenceClass = 'negative';
+                    } else {
+                        differenceMessage = '► Курс не изменился';
+                        differenceClass = 'neutral';
+                    }
+                    
+                    showEuroRate(
+                        euroRate,
+                        date,
+                        previousDate,
+                        previousEuroRate,
+                        differenceMessage,
+                        differenceClass
+                    );
+                })
+                .catch(function(error) {
+                    showError("Ошибка при получении данных. Пожалуйста, попробуйте позже.");
+                });
+        }
+
+        function showEuroRate(rate, date, previousDate, previousRate, differenceMessage, differenceClass) {
+            const container = document.querySelector('.exchange-container');
+            
+            container.innerHTML = '';
+            
+            const card = document.createElement('div');
+            card.className = 'exchange-info';
+            card.innerHTML = `
+                <h3>Курс евро ЦБ РФ</h3>
+                <div class="rate-value">${rate} ₽</div>
+                <div class="rate-difference ${differenceClass}">${differenceMessage}</div>
+                
+                <div class="info-row">
+                    <span class="info-label">Текущая дата:</span>
+                    <span class="info-value">${date.toLocaleDateString('ru-RU')}</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Предыдущая дата:</span>
+                    <span class="info-value">${previousDate.toLocaleDateString('ru-RU')}</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Предыдущий курс:</span>
+                    <span class="info-value">${previousRate} ₽</span>
+                </div>
+                
+                <div class="source">
+                    Данные предоставлены <a href="https://www.cbr-xml-daily.ru/" target="_blank">Центральным банком РФ</a>
+                </div>
+            `;
+            
+            container.appendChild(card);
+        }
+        
+        function showError(message) {
+            const container = document.querySelector('.exchange-container');
+            container.innerHTML = `
+                <div class="exchange-info" style="color: #e74c3c;">
+                    <h3>Ошибка</h3>
+                    <div>${message}</div>
+                </div>
+            `;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+        <hr>
+    </header>
+
+    <main>
+        <button onclick="getEuroExchangeRate()">Получить курс евро</button>
+        <div class="exchange-container"></div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Бережная Маргарита, ФБИ-33, 2 курс, 2025
+    </footer>
+</body>
+</html>
